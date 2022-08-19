@@ -419,7 +419,7 @@ class PororoRobertaSummary(PororoSimpleBase):
         self._classifier.load_state_dict(clf_dict)
         self._model = wrapper.model.encoder.sentence_encoder.to(device).eval()
 
-        if "cuda" in device.type:
+        if "cuda" in device:
             self._model = self._model.half()
             self._classifier = self._classifier.half()
 
